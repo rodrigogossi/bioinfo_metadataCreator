@@ -2,6 +2,17 @@ import os
 import argparse
 import openpyxl
 
+def instalar_openpyxl():
+    """
+    Instala a biblioteca openpyxl usando pip.
+    """
+    try:
+        import openpyxl
+    except ImportError:
+        print("openpyxl não encontrado. Instalando...")
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'openpyxl'])
+
+
 def gerar_metadata(diretorio, arquivo_saida):
     """
     Gera um arquivo XLSX com metadados dos arquivos .fastq no diretório especificado.
@@ -45,6 +56,10 @@ def gerar_metadata(diretorio, arquivo_saida):
     workbook.save(arquivo_saida)
 
 if __name__ == "__main__":
+
+    # Instala openpyxl se necessário
+    instalar_openpyxl()
+
     # Cria o parser de argumentos
     parser = argparse.ArgumentParser(description="Gera metadados de arquivos .fastq em um arquivo XLSX.")
     parser.add_argument("-i", "--input", required=True, help="Caminho para o diretório com os arquivos .fastq")
