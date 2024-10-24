@@ -1,6 +1,5 @@
 import os
 import argparse
-import openpyxl
 
 def instalar_openpyxl():
     """
