@@ -2,6 +2,7 @@ import os
 import argparse
 import subprocess
 import sys
+import openpyxl
 
 def instalar_openpyxl():
     """
