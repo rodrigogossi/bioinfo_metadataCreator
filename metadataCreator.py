@@ -8,6 +8,8 @@ try:
 except ImportError:
     print("openpyxl não encontrado. Instalando...")
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'openpyxl'])
+    
+import openpyxl
 
 def gerar_metadata(diretorios, arquivo_saida):
     """
